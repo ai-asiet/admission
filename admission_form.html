@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<head>
+  <title>Minimal Admission Inquiry Form</title>
+  <style>
+    :root {
+      --primary-color: #3b82f6;
+      --text-color: #334155;
+      --background-color: #ffffff;
+      --border-color: #e2e8f0;
+      --focus-color: #2563eb;
+      --success-color: #10b981;
+      --error-color: #ef4444;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, sans-serif;
+      background-color: #f8fafc;
+      color: var(--text-color);
+      line-height: 1.5;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    
+    .container {
+      width: 100%;
+      max-width: 500px;
+      margin: 0px;
+      background-color: var(--background-color);
+      border-radius: 8px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
+    
+    .form-header {
+      padding: 24px;
+      border-bottom: 1px solid var(--border-color);
+    }
+    
+    .form-header h1 {
+      margin: 0;
+      font-size: 20px;
+      font-weight: 500;
+      color: var(--text-color);
+    }
+    
+    .form-body {
+      padding: 24px;
+    }
+    
+    .form-group {
+      margin-bottom: 20px;
+    }
+    
+    .form-label {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 14px;
+      color: var(--text-color);
+    }
+    
+    .form-control {
+      width: 100%;
+      padding: 10px 12px;
+      font-size: 14px;
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      background-color: var(--background-color);
+      color: var(--text-color);
+      transition: border-color 0.2s ease;
+      box-sizing: border-box;
+    }
+    
+    .form-control:focus {
+      outline: none;
+      border-color: var(--focus-color);
+      box-shadow: 0 0 0 1px var(--focus-color);
+    }
+    
+    .form-select {
+      width: 100%;
+      padding: 10px 12px;
+      font-size: 14px;
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      background-color: var(--background-color);
+      color: var(--text-color);
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23475569' viewBox='0 0 16 16'%3E%3Cpath d='M8 10.5a.5.5 0 0 1-.354-.146l-4-4a.5.5 0 0 1 .708-.708L8 9.293l3.646-3.647a.5.5 0 0 1 .708.708l-4 4A.5.5 0 0 1 8 10.5z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+    }
+    
+    .form-select:focus {
+      outline: none;
+      border-color: var(--focus-color);
+      box-shadow: 0 0 0 1px var(--focus-color);
+    }
+    
+    .checkbox-container {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 20px;
+    }
+    
+    .checkbox-input {
+      margin-right: 8px;
+      margin-top: 3px;
+    }
+    
+    .checkbox-label {
+      font-size: 14px;
+    }
+    
+    .submit-btn {
+      width: 100%;
+      padding: 10px 16px;
+      background-color: var(--primary-color);
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+    
+    .submit-btn:hover {
+      background-color: var(--focus-color);
+    }
+    
+    .submit-btn:disabled {
+      background-color: #cbd5e1;
+      cursor: not-allowed;
+    }
+    
+    .form-footer {
+      padding: 16px 24px;
+      text-align: center;
+      font-size: 12px;
+      color: #64748b;
+      border-top: 1px solid var(--border-color);
+    }
+    
+    .success-message {
+      display: none;
+      text-align: center;
+      padding: 40px 24px;
+    }
+    
+    .success-message p {
+      margin: 0;
+      font-size: 16px;
+      color: var(--success-color);
+    }
+    
+    .error-text {
+      color: var(--error-color);
+      font-size: 12px;
+      margin-top: 4px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="form-header">
+      <h1>Admission Inquiry</h1>
+    </div>
+    
+    <form id="admissionInquiryForm" method="POST" class="form-body">
+      <input type="hidden" name="apikey" value="6dd9e822-9546-4d71-8d9b-c41eb9bf56e1" />
+      
+      <div class="form-group">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" id="name" name="name" class="form-control" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" id="email" name="email" class="form-control" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="mobile" class="form-label">Mobile</label>
+        <input type="text" id="mobile" name="mobile" class="form-control" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="course" class="form-label">Course</label>
+        <select id="course" name="course" class="form-select" required>
+          <option value="">--Select Course--</option>
+          <option value="btech">BTech</option>
+          <option value="mtech">MTech</option>
+          <option value="mca">MCA</option>
+          <option value="phd">PhD</option>
+          <option value="mba">MBA</option>
+        </select>
+      </div>
+      
+      <div class="form-group" id="programs-container" style="display: none;">
+        <label for="programs" class="form-label">Program</label>
+        <select id="programs" name="programs" class="form-select">
+          <option value="">--Select Program--</option>
+        </select>
+      </div>
+      
+      <div class="checkbox-container">
+        <input type="checkbox" id="agree" name="agree" value="yes" class="checkbox-input" required>
+        <label for="agree" class="checkbox-label">I agree to receive information regarding my submitted enquiry</label>
+      </div>
+      
+      <button type="submit" id="submitBtn" class="submit-btn">Submit</button>
+      
+      <div class="success-message">
+        <p>Thank you for your inquiry. We will contact you shortly.</p>
+      </div>
+    </form>
+    
+    <div class="form-footer">
+      All information will be kept confidential
+    </div>
+  </div>
+
+  <script>
+    // Listen for changes on the 'Course' dropdown
+    document.getElementById('course').addEventListener('change', function() {
+      var course = this.value;
+      var programsSelect = document.getElementById('programs');
+      var programsContainer = document.getElementById('programs-container');
+      
+      // Clear previous options
+      programsSelect.innerHTML = '<option value="">--Select Program--</option>';
+      
+      // If no course is selected or if PhD is selected, hide the programs dropdown
+      if (!course || course === 'phd') {
+        programsContainer.style.display = 'none';
+        return;
+      }
+      
+      // Otherwise, display the container
+      programsContainer.style.display = 'block';
+      
+      // Set options based on the selected course
+      var options = [];
+      
+      if (course === 'btech') {
+        options = [
+          {value: 'Civil Engineering', text: 'Civil Engineering'},
+          {value: 'Computer Science & Engineering', text: 'Computer Science & Engineering'},
+          {value: 'Computer Science & Engineering (Artificial Intelligence)', text: 'Computer Science & Engineering (Artificial Intelligence)'},
+          {value: 'Computer Science and Engineering (Data Science)', text: 'Computer Science and Engineering (Data Science)'},
+          {value: 'Electronics & Biomedical Engineering', text: 'Electronics & Biomedical Engineering'},
+          {value: 'Electronics & Communication Engineering', text: 'Electronics & Communication Engineering'},
+          {value: 'Electrical & Electronics Engineering', text: 'Electrical & Electronics Engineering'},
+          {value: 'Mechanical Engineering', text: 'Mechanical Engineering'},
+          {value: 'Robotics and Automation', text: 'Robotics and Automation'}
+        ];
+      } else if (course === 'mtech') {
+        options = [
+          {value: 'M Tech in Computer Science and Engineering', text: 'M Tech in Computer Science and Engineering'},
+          {value: 'M Tech in Power Electronics and Power Systems', text: 'M Tech in Power Electronics and Power Systems'},
+          {value: 'M Tech in VLSI and Embedded Systems', text: 'M Tech in VLSI and Embedded Systems'},
+          {value: 'M Tech in Communication Engineering', text: 'M Tech in Communication Engineering'}
+        ];
+      } else if (course === 'mba') {
+        options = [
+          {value: 'Finance', text: 'Finance'},
+          {value: 'Human Resource Management', text: 'Human Resource Management'},
+          {value: 'Marketing', text: 'Marketing'},
+          {value: 'Operations', text: 'Operations'}
+        ];
+      } else if (course === 'mca') {
+        options = [
+          {value: 'Master of Computer Application (2 years)', text: 'Master of Computer Application (2 years)'}
+        ];
+      }
+      
+      // Populate the programs dropdown with options
+      options.forEach(function(opt) {
+        var option = document.createElement('option');
+        option.value = opt.value;
+        option.text = opt.text;
+        programsSelect.add(option);
+      });
+    });
+    
+    // Handle form submission via AJAX
+    document.getElementById('admissionInquiryForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const form = e.target;
+      const formData = new FormData(form);
+      
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData,
+      })
+      .then(response => response.json())
+      .then(data => {
+        // Disable form fields and update button on successful submission
+        form.querySelectorAll('input, textarea, select, button').forEach(el => {
+          el.disabled = true;
+        });
+        const submitBtn = document.getElementById('submitBtn');
+        submitBtn.textContent = 'Submitted';
+        submitBtn.style.backgroundColor = 'gray';
+      })
+      .catch(error => console.error('Error:', error));
+    });
+  </script>
+</body>
+</html>
